@@ -1,231 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Name | Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yatin Gambhir | DevOps Engineer</title>
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter',sans-serif;
+}
+
+body{
+    background: linear-gradient(135deg,#0f172a,#020617);
+    color:#fff;
+    overflow-x:hidden;
+}
+
+section{
+    padding:120px 10%;
+}
+
+header{
+    position:fixed;
+    width:100%;
+    top:0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 10%;
+    backdrop-filter:blur(20px);
+    background:rgba(255,255,255,0.05);
+    border-bottom:1px solid rgba(255,255,255,0.1);
+    z-index:1000;
+}
+
+header h2{
+    font-weight:700;
+    letter-spacing:1px;
+    background:linear-gradient(45deg,#38bdf8,#818cf8);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+nav a{
+    margin-left:30px;
+    text-decoration:none;
+    color:#cbd5e1;
+    transition:0.3s;
+    position:relative;
+}
+
+nav a::after{
+    content:"";
+    position:absolute;
+    width:0%;
+    height:2px;
+    bottom:-5px;
+    left:0;
+    background:#38bdf8;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#fff;
+}
+
+nav a:hover::after{
+    width:100%;
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.hero h1{
+    font-size:3.5rem;
+    font-weight:800;
+    margin-bottom:20px;
+}
+
+.hero span{
+    background:linear-gradient(45deg,#38bdf8,#818cf8);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+    max-width:650px;
+    color:#94a3b8;
+    line-height:1.6;
+    margin-bottom:30px;
+}
+
+.btn{
+    display:inline-block;
+    padding:12px 30px;
+    border-radius:50px;
+    background:rgba(255,255,255,0.1);
+    border:1px solid rgba(255,255,255,0.2);
+    backdrop-filter:blur(20px);
+    color:#fff;
+    text-decoration:none;
+    transition:0.4s;
+}
+
+.btn:hover{
+    background:linear-gradient(45deg,#38bdf8,#818cf8);
+    transform:translateY(-3px);
+    box-shadow:0 10px 30px rgba(56,189,248,0.3);
+}
+
+.glass-card{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.1);
+    backdrop-filter:blur(20px);
+    border-radius:20px;
+    padding:30px;
+    transition:0.4s;
+}
+
+.glass-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 15px 40px rgba(0,0,0,0.4);
+}
+
+.section-title{
+    font-size:2.2rem;
+    margin-bottom:60px;
+    text-align:center;
+}
+
+.projects-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+footer{
+    text-align:center;
+    padding:40px 10%;
+    background:#020617;
+    color:#64748b;
+}
+
+.fade{
+    opacity:0;
+    transform:translateY(40px);
+    transition:all 1s ease;
+}
+
+.fade.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+@media(max-width:768px){
+    .hero h1{
+        font-size:2.2rem;
     }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #0f172a;
-      color: #e2e8f0;
+    nav{
+        display:none;
     }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    header {
-      position: fixed;
-      width: 100%;
-      padding: 20px 10%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(15, 23, 42, 0.8);
-      backdrop-filter: blur(10px);
-      z-index: 1000;
-    }
-
-    header h2 {
-      font-weight: 700;
-      color: #38bdf8;
-    }
-
-    nav a {
-      margin-left: 30px;
-      font-weight: 500;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      color: #38bdf8;
-    }
-
-    section {
-      min-height: 100vh;
-      padding: 120px 10% 80px;
-      display: flex;
-      align-items: center;
-    }
-
-    .hero {
-      flex-direction: column;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-    }
-
-    .hero span {
-      color: #38bdf8;
-    }
-
-    .hero p {
-      max-width: 600px;
-      margin: 0 auto 30px;
-      color: #94a3b8;
-    }
-
-    .btn {
-      padding: 12px 30px;
-      background: #38bdf8;
-      color: #0f172a;
-      border-radius: 30px;
-      font-weight: 600;
-      transition: 0.3s;
-    }
-
-    .btn:hover {
-      background: #0ea5e9;
-    }
-
-    .about, .projects, .contact {
-      flex-direction: column;
-      text-align: center;
-    }
-
-    .section-title {
-      font-size: 2rem;
-      margin-bottom: 40px;
-      color: #38bdf8;
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      width: 100%;
-    }
-
-    .project-card {
-      background: #1e293b;
-      padding: 20px;
-      border-radius: 15px;
-      transition: 0.3s;
-    }
-
-    .project-card:hover {
-      transform: translateY(-5px);
-      background: #334155;
-    }
-
-    .project-card h3 {
-      margin-bottom: 10px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #0f172a;
-      color: #64748b;
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.8s ease;
-    }
-
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @media(max-width: 768px){
-      .hero h1 {
-        font-size: 2rem;
-      }
-    }
-  </style>
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <h2>Yatin</h2>
+<header>
+    <h2>Yatin Gambhir</h2>
     <nav>
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
     </nav>
-  </header>
+</header>
 
-  <section id="home" class="hero">
-    <h1>Hello, I'm <span>Yatin</span></h1>
-    <p>A passionate Developer focused on building clean, scalable and user-friendly applications.</p>
-    <a href="#projects" class="btn">View My Work</a>
-  </section>
-
-  <section id="about" class="about reveal">
-    <h2 class="section-title">About Me</h2>
-    <p style="max-width:700px; color:#94a3b8;">
-      I'm a developer who loves building modern web applications. 
-      I focus on writing clean code, building scalable systems, and creating 
-      intuitive user experiences.
+<section class="hero">
+    <h1>Hi, I'm <span>Yatin</span><br>DevOps & Cloud Engineer</h1>
+    <p>
+        I design scalable cloud infrastructure, automate deployments,
+        and build efficient DevOps pipelines using AWS, Docker,
+        Terraform and GitHub Actions.
     </p>
-  </section>
+    <a href="#projects" class="btn">View My Work</a>
+</section>
 
-  <section id="projects" class="projects reveal">
-    <h2 class="section-title">Projects</h2>
-    <div class="projects-grid">
-      <div class="project-card">
-        <h3>DevOps Dashboard</h3>
-        <p>System metrics monitoring tool with AWS integration.</p>
-      </div>
-      <div class="project-card">
-        <h3>Portfolio Website</h3>
-        <p>Responsive personal website built with modern UI design.</p>
-      </div>
-      <div class="project-card">
-        <h3>Cloud Automation</h3>
-        <p>Infrastructure provisioning using Terraform & Docker.</p>
-      </div>
+<section id="about" class="fade">
+    <h2 class="section-title">About Me</h2>
+    <div class="glass-card">
+        <p style="color:#94a3b8; line-height:1.7;">
+            I'm a passionate DevOps Engineer focused on building production-ready cloud systems.
+            Recently built a DevOps Utilities Project that fetches system metrics 
+            (CPU, Memory, Disk) along with AWS resources like EC2 and S3.
+            I specialize in automation, CI/CD, containerization, and infrastructure as code.
+        </p>
     </div>
-  </section>
+</section>
 
-  <section id="contact" class="contact reveal">
-    <h2 class="section-title">Contact</h2>
-    <p style="margin-bottom:20px; color:#94a3b8;">Let's build something amazing together.</p>
-    <a href="mailto:yourmail@example.com" class="btn">Email Me</a>
-  </section>
+<section id="projects" class="fade">
+    <h2 class="section-title">Featured Projects</h2>
+    <div class="projects-grid">
+        <div class="glass-card">
+            <h3>DevOps Utilities Dashboard</h3>
+            <p style="color:#94a3b8;">
+                System & AWS resource monitoring with Docker multi-stage build and CI/CD pipeline.
+            </p>
+        </div>
+        <div class="glass-card">
+            <h3>Cloud Infrastructure Automation</h3>
+            <p style="color:#94a3b8;">
+                Provisioned AWS infrastructure using Terraform with modular architecture.
+            </p>
+        </div>
+        <div class="glass-card">
+            <h3>Containerized Applications</h3>
+            <p style="color:#94a3b8;">
+                Built optimized Docker images using multi-stage builds and secure secrets management.
+            </p>
+        </div>
+    </div>
+</section>
 
-  <footer>
-    © 2026 Yatin. All Rights Reserved.
-  </footer>
+<section id="contact" class="fade">
+    <h2 class="section-title">Let's Connect</h2>
+    <div class="glass-card" style="text-align:center;">
+        <p style="margin-bottom:20px;color:#94a3b8;">
+            Open to collaborations, DevOps roles, and cloud architecture opportunities.
+        </p>
+        <a href="mailto:yourmail@example.com" class="btn">Email Me</a>
+    </div>
+</section>
 
-  <script>
-    // Scroll Reveal Animation
-    function reveal() {
-      const reveals = document.querySelectorAll(".reveal");
-      for (let i = 0; i < reveals.length; i++) {
-        const windowHeight = window.innerHeight;
-        const elementTop = reveals[i].getBoundingClientRect().top;
-        const elementVisible = 100;
+<footer>
+    © 2026 Yatin Gambhir | Built with Passion for DevOps & Cloud
+</footer>
 
-        if (elementTop < windowHeight - elementVisible) {
-          reveals[i].classList.add("active");
+<script>
+const elements = document.querySelectorAll('.fade');
+
+function revealOnScroll(){
+    const triggerBottom = window.innerHeight * 0.85;
+    elements.forEach(el=>{
+        const boxTop = el.getBoundingClientRect().top;
+        if(boxTop < triggerBottom){
+            el.classList.add('show');
         }
-      }
-    }
+    });
+}
 
-    window.addEventListener("scroll", reveal);
-  </script>
+window.addEventListener('scroll',revealOnScroll);
+revealOnScroll();
+</script>
 
 </body>
 </html>
