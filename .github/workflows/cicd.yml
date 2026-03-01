@@ -1,31 +1,39 @@
-#this is the name of workflow that will be displayed in the actions tab
+#this is the name of the workflow that will be displayed in the actions tab
 name: CICD
 
 on:
   workflow_dispatch:
-
+    inputs:
+      environment:
+        description: This is the environment value where the workflow runs
+        required: true
+        type: choice
+        default: dev
+        options:
+          - dev
+          - prod
+          - staging
 jobs:
-
   code:
     runs-on: ubuntu-latest
     steps:
       - name: checkout code
-        run: echo "Code clone from github"
+        run: echo "Code clone from GitHub."
   build:
      needs: code
      runs-on: ubuntu-latest
      steps:
        - name: build the code
-         run: echo "Docker Build in progress"
+         run: echo "Docker Build in progress."
   test:
       needs: build
       runs-on: ubuntu-latest
       steps:
         - name: test the code
-          run: echo "Docker test in progress"
+          run: echo "Docker test in progress."
   deploy:
-      needs: [test,build]
+      needs: [test, build]
       runs-on: ubuntu-latest
       steps:
         - name: deploy the code
-          run: echo "Docker run in prgress"
+          run: echo "Docker run in progress."
