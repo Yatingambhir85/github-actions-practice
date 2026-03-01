@@ -32,6 +32,7 @@ jobs:
         - name: test the code
           run: echo "Docker test in progress."
   deploy:
+      if: inputs.environment == 'dev'
       needs: [test, build]
       runs-on: ubuntu-latest
       steps:
