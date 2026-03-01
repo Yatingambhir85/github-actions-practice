@@ -26,6 +26,8 @@ jobs:
       #Step 3 - Deploy the code to Github page
       - name: Deploy to Github Pages
         uses: actions/upload-pages-artifact@v4
+        with:
+          path: "."
       #Step 4 - Publish the page
       - name: Deploy to Github Pages
         uses: actions/deploy-pages@v4
