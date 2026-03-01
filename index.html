@@ -1,25 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Portfolio</title>
-    <style>
-        body { font-family: sans-serif; }
-        .container { max-width: 800px; margin: 0 auto; }
-        header, section { padding: 20px; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Name | Portfolio</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      position: fixed;
+      width: 100%;
+      padding: 20px 10%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+    }
+
+    header h2 {
+      font-weight: 700;
+      color: #38bdf8;
+    }
+
+    nav a {
+      margin-left: 30px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #38bdf8;
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 120px 10% 80px;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .hero span {
+      color: #38bdf8;
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin: 0 auto 30px;
+      color: #94a3b8;
+    }
+
+    .btn {
+      padding: 12px 30px;
+      background: #38bdf8;
+      color: #0f172a;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #0ea5e9;
+    }
+
+    .about, .projects, .contact {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 40px;
+      color: #38bdf8;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      width: 100%;
+    }
+
+    .project-card {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 15px;
+      transition: 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      background: #334155;
+    }
+
+    .project-card h3 {
+      margin-bottom: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #0f172a;
+      color: #64748b;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media(max-width: 768px){
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <header><h1>Hello, I'm [Your Name]</h1></header>
-    <main class="container">
-        <section id="about">
-            <p>Welcome to my portfolio. This is a simple structure.</p>
-        </section>
-        <section id="projects">
-            <h2>Projects</h2>
-            <p>Example project</p>
-        </section>
-    </main>
+
+  <header>
+    <h2>Yatin</h2>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <h1>Hello, I'm <span>Yatin</span></h1>
+    <p>A passionate Developer focused on building clean, scalable and user-friendly applications.</p>
+    <a href="#projects" class="btn">View My Work</a>
+  </section>
+
+  <section id="about" class="about reveal">
+    <h2 class="section-title">About Me</h2>
+    <p style="max-width:700px; color:#94a3b8;">
+      I'm a developer who loves building modern web applications. 
+      I focus on writing clean code, building scalable systems, and creating 
+      intuitive user experiences.
+    </p>
+  </section>
+
+  <section id="projects" class="projects reveal">
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3>DevOps Dashboard</h3>
+        <p>System metrics monitoring tool with AWS integration.</p>
+      </div>
+      <div class="project-card">
+        <h3>Portfolio Website</h3>
+        <p>Responsive personal website built with modern UI design.</p>
+      </div>
+      <div class="project-card">
+        <h3>Cloud Automation</h3>
+        <p>Infrastructure provisioning using Terraform & Docker.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact reveal">
+    <h2 class="section-title">Contact</h2>
+    <p style="margin-bottom:20px; color:#94a3b8;">Let's build something amazing together.</p>
+    <a href="mailto:yourmail@example.com" class="btn">Email Me</a>
+  </section>
+
+  <footer>
+    © 2026 Yatin. All Rights Reserved.
+  </footer>
+
+  <script>
+    // Scroll Reveal Animation
+    function reveal() {
+      const reveals = document.querySelectorAll(".reveal");
+      for (let i = 0; i < reveals.length; i++) {
+        const windowHeight = window.innerHeight;
+        const elementTop = reveals[i].getBoundingClientRect().top;
+        const elementVisible = 100;
+
+        if (elementTop < windowHeight - elementVisible) {
+          reveals[i].classList.add("active");
+        }
+      }
+    }
+
+    window.addEventListener("scroll", reveal);
+  </script>
+
 </body>
 </html>
