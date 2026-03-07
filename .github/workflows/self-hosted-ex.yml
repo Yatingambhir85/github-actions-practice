@@ -25,3 +25,6 @@ jobs:
         run: |
           echo "Listing files in directory: " 
           ls -la
+     -  name: Prints current date & time
+        run: |
+          echo "Current date & time is: " date
