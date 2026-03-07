@@ -1,7 +1,7 @@
 name: self-hosted-runner-example
 
 on:
-  workflow-dispatch:
+  workflow_dispatch:
   push:
     branches: main
 
