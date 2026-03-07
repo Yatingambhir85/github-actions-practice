@@ -13,9 +13,10 @@ jobs:
         run: |
            echo "Hostname of the machine: " 
            hostname
+           whoami
      -  name: Print working directory
         run: |
-          echo"Current working directory: " 
+          echo "Current working directory: " 
           pwd
      -  name: Create a file
         run: |
