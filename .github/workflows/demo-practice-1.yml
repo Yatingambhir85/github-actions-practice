@@ -13,7 +13,7 @@ jobs:
     steps:
      - name: Say hello to user 
        run: |
-           echo "Hello $(USER)"
+           echo "Hello $USER"
 
   date:
     runs-on: ubuntu-latest
