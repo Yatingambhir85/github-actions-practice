@@ -6,7 +6,7 @@ on:
   push: #It will also run when any commit happens on the main branch
     branches: main
 
-job:
+jobs:
 
   greet:
     runs-on: ubuntu-latest
