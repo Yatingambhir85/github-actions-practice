@@ -1,0 +1,23 @@
+name: demo-workflow
+
+#Trigger
+on:
+  workflow_dispatch: #It runes when user clicks on the "Run Wokrflow" button
+  push: #It will also run when any commit happens on the main branch
+    branches: main
+
+job:
+
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+     - name: Say hello to user 
+       run: |
+           echo "Hello $(USER)"
+
+  date:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Prints the Date & Time
+        run: |
+          echo "Current Date & Time is: $(TZ='Asia/Kolkata' date)"
