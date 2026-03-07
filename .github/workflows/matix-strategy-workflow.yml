@@ -1,6 +1,7 @@
-name: Matrix Startegy Demo
+name: Matrix Strategy Demo
 
-on: workflow_dispatch:
+on: 
+  workflow_dispatch:
 
 jobs:
   Install-software:
@@ -13,9 +14,9 @@ jobs:
       run: |
         sudo apt-get install ${{matrix.tool}} -y
 
-   check-versions:
+  check-versions:
     runs-on: self-hosted
-    startegy:
+    strategy:
       matrix:
         tool: ["docker", "python3"]
     steps:
