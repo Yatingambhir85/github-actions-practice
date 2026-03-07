@@ -1,0 +1,19 @@
+name: self-hosted-runner-example
+
+on:
+  workflow-dispacth
+  push:
+    branches: main
+
+jobs:
+  practice-demo:
+    runs-on: self-hosted
+    steps:
+     -  name: print hostname
+        run: echo "Hostname of the machine: " hostname
+     -  name: Print working directory
+        run: echo"Current working directory: " pwd
+     -  name: Create a file
+        run: echo "This file is created by Github self hosted runner!" > runner-test.txt
+     -  name: Verfiy the file exists
+        run: echo "Listing files in directory: " ls -la
