@@ -1,0 +1,27 @@
+name: Matrix Startegy Demo
+
+on: workflow_dispatch:
+
+jobs:
+  Install-software:
+   runs-on: self-hosted
+   strategy:
+      matrix:
+        tool: ["docker.io", "python3"]
+   steps:
+    - name: Install Docker
+      run: |
+        sudo apt-get install ${{matrix.tool}} -y
+
+   check-versions:
+    runs-on: self-hosted
+    startegy:
+      matrix:
+        tool: ["docker", "python3"]
+    steps:
+      - name: check version
+        run: |
+          ${{matrix.tool}} --version && echo "${{matrix.tool}} is installed"  
+    needs: Install-software
+
+
