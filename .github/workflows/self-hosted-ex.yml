@@ -27,4 +27,5 @@ jobs:
           ls -la
      -  name: Prints current date & time
         run: |
-          echo "Current date & time is: " $date
+          echo "Current date & time is: " 
+          date
