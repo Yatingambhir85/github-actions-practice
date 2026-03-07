@@ -9,20 +9,21 @@ jobs:
     steps:
       - name: Say hello to the user
         run: |
-          echo "Hello $whoami"
+          echo "Hello $(whoami)"
 
   new-file:
     runs-on: self-hosted
     steps:
       - name: Create a new file
         run: |
-          echo "This file is created by Self Hosted Runner, which is visble in your EC2 instance" > runner.txt
+          echo "This file is created by Self Hosted Runner, which is visible in your EC2 instance" > runner.txt
     needs: greet
 
   list-file:
     runs-on: self-hosted
     steps:
-      - name: Verify the file is created
+      - name: Verify the contents of the file created
         run: |
           ls -l runner.txt
+          cat runner.txt
     needs: new-file
